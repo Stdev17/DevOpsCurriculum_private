@@ -6,15 +6,43 @@
 ## Topics
 * 리눅스의 기본 커맨드
   * `cd`, `pwd`, `ls`, `cp`, `mv`, `mkdir`, `rm`, `touch`, `ln`, `echo`, `cat`, `tail`, `find`, `ps`, `kill`, `grep`, `wc`, `df`, `du`
+    * `ln`, `unlink`: symlink 관리
+    * `tail`: 마지막 10줄(로그 확인?)
+    * `kill`: SIGKILL(9), SIGTERM(15), SIGSTOP(24)
   * 파이프(`|`) 문자
+    * `ps`: 프로세스 확인
+      * `ps aux | pgrep sysmond`
+  * Permission indicator: (-d) file/directory, (rwx) read-write-execute
+    * chmod: 2진법
 * 리눅스의 기본적인 디렉토리 구성
   * `/bin`, `/usr/bin`, `/boot`, `/dev`, `/etc`, `/home`, `/lib`, `/mnt`, `/proc`, `/root`, `/sbin`, `/usr/sbin`, `/tmp`, `/usr`, `/var`
+    * `/bin`, `/usr/bin`: essential binaries
+    * `/boot`: boot files
+    * `/dev`, `/mnt`: device mount. `/dev/null`을 아는가?
+    * `/etc`: configuration files
+    * `/home/leta`: home directory
+    * `/lib`: essential shared libraries
+    * `/opt`: optional packages
+    * `/proc`: kernal, process files
+    * `/sbin`, `/usr/sbin`: system administration binaries
+    * `/usr`, `/var`
 * 쉘과 환경변수와 퍼미션
   * sh, bash, zsh
   * `.bash_profile`, `.bashrc`, `.zshrc`
   * `env`, `set`, `unset`, `export`
   * `chmod`, `chown`, `chgrp`
   * setuid, Sticky bit
+  * `#!/bin/zsh`, `#!/usr/bin/python3`: shebang
+    * Python을 shell script로 활용하기: `os.system()`로 기본 셸 스크립트 실행(현재 zsh)하고 error code를 반환한다. (성공시 0)
+    * `subprocess.run()`이 권장되는 방식이며, 토큰을 string list 형태로 전달한다.
+      * `returncode`
+      * `stdout` 패러미터 설정가능(`PIPE`, `DEVNULL` 등) `/dev/null`로 보내면 표시되는 내용을 전부 날려버릴 수 있다.
+        * `PIPE`는 파이프나 리디렉트의 역할.
+        * `input`에 리디렉트용 값 넣기
+      * `text=True`로 stdout/stderr를 string으로 받아 온다.
+    * `from subprocess import Popen`으로 좋은 라이브러리를 갖다 쓸 수 있름. Popen은 기본적으로 Object 별로 subprocess를 생성하여 `wait()` 등을 활용한 비동기 작업을 수행할 수 있음. `poll()`로 exit code를 확인할 수 있다. (또는 `None`)
+      * `asyncio`, `thread`와 비교하여 차이점은? 이 둘의 활용법은?
+      * `communicate()`에 `PIPE`에 유입시킬 값을 넣을 수 있다. `output, errors`로 받는다.
 * 운영체제의 기초
   * 프로세스와 쓰레드
   * 파일 시스템
