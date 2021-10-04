@@ -99,7 +99,9 @@
   * 현재 실행되고 있는 프로세스들과 마운트 된 파일시스템들을 확인해 봅니다.
   * vi를 열어 여러 가지 기본 명령과 간단한 편집 방법을 연습해 봅니다.
 * 생성한 인스턴스 중 Ubuntu는 완전히 종료(Terminate)하고, Amazon Linux 2는 일단 꺼둡니다.
+* 이상은 Ubuntu, macOS에서 활용함
 
 ## Advanced
 * 리눅스 외의 POSIX 호환 운영체제에는 어떤 것들이 있을까요? 그러한 운영체제들은 어떤 용도로 쓰일까요?
+  * 대표적으로 macOS와 Solaris가 있습니다. Android, iOS, FreeBSD, OpenBSD, NetBSD, Linux 등도 일반적인 사용에 문제가 없다고 여겨집니다. 윈도우는 엔드 유저 환경에서 POSIX를 지원하지 않습니다. 그래서 MinGW, Cygwin, WSL 등의 개발 환경 설정이 필요합니다.
 * 윈도우를 제외하고, 최근에 발표된 운영체제들 중 POSIX에 호환되지 않는 운영체제도 있을까요?
